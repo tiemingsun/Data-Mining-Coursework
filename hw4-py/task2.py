@@ -212,8 +212,8 @@ if __name__ == "__main__":
   
     DATA_FILE = "///Users/tieming/inf553/hw4-py/data/ub_sample_data.csv"
     THRESHOLD = 7
-    BETWEEN_OUTPUT_PATH = "///Users/tieming/inf553/hw4-py/task2_betweenness.txt"
-    COMMUNITY_OUTPUT_PATH = "///Users/tieming/inf553/hw4-py/task2_community.txt"
+    BETWEEN_OUTPUT_PATH = "///Users/tieming/inf553/hw4-py/task2_betweenness_train.txt"
+    COMMUNITY_OUTPUT_PATH = "///Users/tieming/inf553/hw4-py/task2_community_train.txt"
 
     # THRESHOLD = int(sys.argv[1])
     # DATA_FILE = sys.argv[2]
@@ -232,7 +232,7 @@ if __name__ == "__main__":
     raw_data_rdd = sc.parallelize(data_list)\
                     .groupByKey()\
                     .mapValues(lambda x: set(x))\
-                    .filter(lambda x: len(x[1]) >= 7)
+                    .filter(lambda x: len(x[1]) >= THRESHOLD)
 
 
     id_dict = raw_data_rdd.collectAsMap()
@@ -242,7 +242,7 @@ if __name__ == "__main__":
     combined_rdd = user_rdd.cartesian(user_rdd)\
                             .filter(lambda line: line[0] < line[1])
 
-    graph_rdd = combined_rdd.map(lambda line: (line[0], line[1], find_relation(line[0], line[1], id_dict, 7)) )\
+    graph_rdd = combined_rdd.map(lambda line: (line[0], line[1], find_relation(line[0], line[1], id_dict, THRESHOLD)) )\
                 .filter(lambda line: line[2] == "follow")
 
     user_distinct = graph_rdd.map(lambda line: (line[0], line[1]))\
