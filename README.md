@@ -13,4 +13,4 @@ Please Check Textbook [Mining of Massive Datasets](http://infolab.stanford.edu/~
 3|Find Similar Itemsets|MinHash, Locality Sensitive Hashing, Content-based / Collaborative Filtering Recommendation system
 4|Community Detection|Betweenness, Girvan-Newman algorithm
 5|Data Streaming|Bloom Filter, Flajolet-Martin algorithm, Reservoir Sampling with Twitter API
-6|Clustering|KMeans / BFR Algorithm
+6|Clustering|KMeans / BFR algorithm
