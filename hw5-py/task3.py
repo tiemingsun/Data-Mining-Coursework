@@ -83,11 +83,10 @@ if __name__ == "__main__":
     OUTPUT_PATH = "///Users/tieming/inf553/hw5-py/task3.csv"
     # OUTPUT_PATH = sys.argv[2]
 
-    consumer_key = "mupFEtYOVusV50zXqpfeDv7Pf"
-    consumer_secret = "M9yJqzMGuj4iYp3waleBdoFJdh6uKkgi5Q9ZObNxNH2fpKanQp"
-
-    access_token = "1028742578357690368-vma3si8gxx1asZucaKuhhTiB9IRJJF"
-    access_token_secret = "HQiT686o4trL2EcphS0n0xbANjjj2OA9HXYU1hRMVYRIf"
+    consumer_key = "*******************************"
+    consumer_secret = "*******************************"
+    access_token = "*******************************"
+    access_token_secret = "*******************************"
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
